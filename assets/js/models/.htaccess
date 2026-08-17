@@ -1,0 +1,16 @@
+# Correct MIME types for face-api.js model files
+<IfModule mod_mime.c>
+    AddType application/json .json
+    AddType application/octet-stream .shard1 .shard2 .shard3 .bin
+</IfModule>
+
+# Allow cross-origin access (needed for face-api.js fetch)
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, OPTIONS"
+</IfModule>
+
+# Disable caching issues during dev
+<IfModule mod_expires.c>
+    ExpiresActive Off
+</IfModule>
